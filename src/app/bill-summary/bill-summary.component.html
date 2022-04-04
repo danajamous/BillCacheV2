@@ -1,0 +1,21 @@
+<div class="grid-container">
+    <h1 class="mat-h1"> Bill Summary <button mat-icon-button color="primary" matTooltip="Confirm your bill summary and click on pay to make a payment" >
+        <mat-icon>info</mat-icon>
+    </button></h1>
+    
+        <table class="table table-hover">
+        <tr>
+            <th><a style="color:green"> Your bill summary</a></th>
+        </tr>
+        <tr >
+            <td>Biller Category : {{ billercategory[jsondata.billcategory]}} </td></tr>
+            <tr >  <td>Biller Name : {{ billername[jsondata.billername]}}  </td></tr>
+                <tr >  <td>Service Name : {{ service[jsondata.servicename]}}</td></tr>
+                    <tr > <td>Billing Number : {{jsondata.billingnumber}}</td>
+        </tr>
+    </table>
+  
+
+    <label style ="font-weight: bold;">Total amount to pay</label> 30.8$
+    <div style="margin-top:20px"><button [routerLink]="'/paymentConfirmation'" type="button" class="btn btn-success">Pay</button></div>
+</div>

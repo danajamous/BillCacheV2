@@ -1,0 +1,49 @@
+<div class="grid-container">
+    <h1 class="mat-h1">Saved Bills  
+      <button mat-icon-button color="primary" matTooltip="Inquire about the due amount of your saved bills by clicking on the inquire button beside each bill and then you can select them by check the check box to proceed to make a payment"   >
+      <mat-icon>info</mat-icon> 
+    </button></h1>
+  
+    <table class="table table-hover">
+      <tr>
+        <th></th>
+        <th> Biller Name</th>
+        <th> Service Name</th>
+        <th> Billing Number</th>
+        <th> Due Date</th>
+        <th> Amount To Pay</th>
+        <th class="d-flex justify-content-center">Actions</th>
+      </tr>
+      <tr *ngFor="let d of data " [attr.id]="d.id">
+        <td class="align-middle">
+          <input style="margin-top: -0.4rem!important"
+                 class="form-check-input"
+                 (change)="toggleCheckbox(d,$event)"
+                 type="checkbox"
+                 id="{{'checkBox' + d.id}}"
+                 disabled
+          />
+        </td>
+        <td class="align-middle">{{ d.billerName }}</td>
+        <td class="align-middle">{{ d.serviceName}}</td>
+        <td class="align-middle">{{ d.billingNumber }}</td>
+        <td class="align-middle">{{ d.dueDate }}</td>
+        <td class="align-middle">
+          <label style="margin-bottom: 0!important" id="{{'amountToPay' + d.id}}"></label>
+        </td>
+        <td class="d-flex justify-content-center">
+          <button mat-button (click)="inquire(d)">Inquire</button>
+          <button mat-icon-button (click)="deleteRow(d)" id="remove">
+            <mat-icon mat-button style="color:rgb(160, 0, 0)">delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </table>
+    <a style="text-decoration: solid; font-size: 20px;"> Total amount to pay </a>
+    <label style="font-size: 18px">{{ totalAmountToPayDisplay }}</label>
+    <div style="margin-top:20px">
+      <button mat-button  type="button" [routerLink]="'/paymentConfirmation'" [disabled]="buttonDisabled"  class="btn btn-success"  >Pay</button>  
+      <button [hidden]="!buttonDisabled" mat-icon-button color="primary" matTooltip="To enable the Pay button you should select at least one inquired bill"   >
+        <mat-icon>info</mat-icon> 
+      </button>
+  </div>

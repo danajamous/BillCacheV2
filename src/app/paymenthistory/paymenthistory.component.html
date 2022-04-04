@@ -1,0 +1,53 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Payment History <button mat-icon-button color="primary" matTooltip="View all your previous year payments  " >
+    <mat-icon>info</mat-icon>
+  </button></h1>
+
+
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" 
+matSort (matSortChange)="announceSortChange($event)" >
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="billdate">
+    <th mat-header-cell *matHeaderCellDef
+    mat-sort-header sortActionDescription="Sort by billdate">Date</th>
+    <td mat-cell *matCellDef="let element"> {{element.billdate}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="billername">
+    <th mat-header-cell *matHeaderCellDef  mat-sort-header sortActionDescription="Sort by billername">Biller Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.billername}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="servicename">
+    <th mat-header-cell *matHeaderCellDef
+    mat-sort-header sortActionDescription="Sort by servicename">Service Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.servicename}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="billingnumber">
+    <th mat-header-cell *matHeaderCellDef
+     mat-sort-header sortActionDescription="Sort by number">Billing Number </th>
+    <td mat-cell *matCellDef="let element"> {{element.billingnumber}} </td>
+  </ng-container>
+
+   <!-- Status Column -->
+   <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef
+      mat-sort-header sortActionDescription="Sort by status"> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+</div>
