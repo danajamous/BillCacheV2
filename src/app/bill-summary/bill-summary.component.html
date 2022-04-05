@@ -17,5 +17,11 @@
   
 
     <label style ="font-weight: bold;">Total amount to pay</label> 30.8$
-    <div style="margin-top:20px"><button [routerLink]="'/paymentConfirmation'" type="button" class="btn btn-success">Pay</button></div>
-</div>
+    <div style="margin-top:20px">
+        <table><tr>
+      <td><button [routerLink]="'/paymentConfirmation'" type="button" class="btn btn-success">Pay</button>
+      </td>  
+      <td><button [routerLink]="'/paynewBills'" type="button" class="btn btn-success">Cancel</button>
+        </td>
+    </tr></table>
+    </div>
