@@ -33,7 +33,7 @@ export class SavedBillsComponent {
 
 
   deleteRow(element: any) {
-    if(confirm("Are you sure to delete  bill "+ element.billingNumber)) {
+    if(confirm("Are you sure you want to delete  bill "+ element.billingNumber)) {
     
     for (let i = 0; i < this.data.length; ++i) {
       if (this.data[i].id === element.id) {
@@ -49,7 +49,7 @@ export class SavedBillsComponent {
         this.buttonDisabled = true;
     }
     this.totalAmountToPayDisplay = this.formatDollarValue(this.totalAmountToPay);
-    alert("bill "+ element.billingNumber + " deleted successfully");
+    alert("Bill "+ element.billingNumber + " deleted successfully");
   }}
 
   inquire(element: any) {
