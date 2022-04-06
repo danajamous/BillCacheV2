@@ -1,6 +1,6 @@
 <div class="grid-container">
     <h1 class="mat-h1">Saved Bills  
-      <button mat-icon-button color="primary" matTooltip="Inquire about the due amount of your saved bills by clicking on the inquire button beside each bill and then you can select them by check the check box to proceed to make a payment"   >
+      <button mat-icon-button color="primary" matTooltip="See how much money is due for each bill by clicking the Inquire button to the right of that bill. Then select all the bills you wish to pay by checking the checkbox to the left of that bill and click the Pay button at the bottom of the page to proceed with making your payment."   >
       <mat-icon>info</mat-icon> 
     </button></h1>
   
@@ -43,7 +43,7 @@
     <label style="font-size: 18px">{{ totalAmountToPayDisplay }}</label>
     <div style="margin-top:20px">
       <button mat-button  type="button" [routerLink]="'/paymentConfirmation'" [disabled]="buttonDisabled"  class="btn btn-success"  >Pay</button>  
-      <button [hidden]="!buttonDisabled" mat-icon-button color="primary" matTooltip="To enable the Pay button you should select at least one inquired bill"   >
+      <button [hidden]="!buttonDisabled" mat-icon-button color="primary" matTooltip="To enable the Pay button you should click Inquire on then check the checkbox of at least one bill"   >
         <mat-icon>info</mat-icon> 
       </button>
   </div>
